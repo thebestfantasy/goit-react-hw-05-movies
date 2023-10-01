@@ -1,16 +1,22 @@
+import React from 'react';
+import { Routes, Route } from 'react-router-dom';
+import HomePage from 'pages/Home/HomePage';
+import Movies from 'pages/Movies';
+import MovieDetails from 'pages/MovieDetails';
+import NotFound from 'pages/NotFound';
+import Layout from 'Layout';
+
 export const App = () => {
   return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101'
-      }}
-    >
-      React homework template
-    </div>
+    <>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<HomePage />} />
+          <Route path="movies" element={<Movies />} />
+          <Route path="moviedetails" element={<MovieDetails />} />
+          <Route path="notfound" element={<NotFound />} />
+        </Route>
+      </Routes>
+    </>
   );
 };
