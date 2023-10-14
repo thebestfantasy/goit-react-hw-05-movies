@@ -1,13 +1,17 @@
 import React from 'react';
-// import { Link, NavLink } from 'react-router-dom'
+import { useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const TrendingList = ({ data }) => {
+  const location = useLocation();
+
   return (
     <ul>
       {data.results.map(result => (
         <li key={result.id}>
-          {/* <NavLink to={}></NavLink>  */}
-          {result.title}
+          <Link to={`/movies/${result.id}`} state={{ from: location }}>
+            {result.title}
+          </Link>
         </li>
       ))}
     </ul>
