@@ -2,6 +2,7 @@ import Loader from 'components/Loader/Loader';
 import TrendingList from 'components/TrendingList/TrendingList';
 import { useEffect, useState } from 'react';
 import { getTrendingMovie } from 'service/API';
+import { MainContainer } from './HomePage.Styled';
 
 const HomePage = () => {
   const [data, setData] = useState(null);
@@ -14,7 +15,7 @@ const HomePage = () => {
 
       try {
         const dataMovie = await getTrendingMovie();
-        setData(dataMovie);
+        setData(dataMovie.results);
       } catch (error) {
         setError(error.message);
       } finally {
@@ -25,11 +26,11 @@ const HomePage = () => {
   }, []);
 
   return (
-    <>
-      <h1>trending today</h1>
+    <MainContainer>
+      <h1>Trending Today</h1>
       {error && <h2>{error}</h2>}
       {isLoading ? <Loader /> : data && <TrendingList data={data} />}
-    </>
+    </MainContainer>
   );
 };
 

@@ -18,7 +18,7 @@ const Movies = () => {
 
       try {
         const findMovies = await getMoviesByName(moviesByQuery);
-        setData(findMovies);
+        setData(findMovies.results);
       } catch (error) {
         setError(error.message);
       } finally {
@@ -32,7 +32,7 @@ const Movies = () => {
     e.preventDefault();
 
     const value = e.target.elements.query.value;
-    setSearchParams({ query: value });
+    value ? setSearchParams({ query: value }) : setSearchParams({});
   };
 
   return (
