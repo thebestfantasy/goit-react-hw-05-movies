@@ -1,15 +1,15 @@
-import { Container, HeaderStyled, Link } from './Header.Styled';
+import { HeaderStyled, Link } from './Header.Styled';
 
 const Header = () => {
   return (
-    <Container>
+    <div>
       <HeaderStyled>
         <nav>
           <Link to="homepage">Home</Link>
           <Link to="movies">Movies</Link>
         </nav>
       </HeaderStyled>
-    </Container>
+    </div>
   );
 };
 

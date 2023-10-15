@@ -3,6 +3,7 @@ import TrendingList from 'components/TrendingList/TrendingList';
 import { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { getMoviesByName } from 'service/API';
+import { MoviesContainer, MoviesInput } from './Movies.Styled';
 
 const Movies = () => {
   const [data, setData] = useState(null);
@@ -36,11 +37,11 @@ const Movies = () => {
   };
 
   return (
-    <div>
+    <MoviesContainer>
       <main>
         <h1>Movies</h1>
         <form onSubmit={handleSubmit}>
-          <input
+          <MoviesInput
             name="query"
             type="text"
             autoComplete="off"
@@ -51,7 +52,7 @@ const Movies = () => {
       </main>
       {error && <h2>{error}</h2>}
       {isLoading ? <Loader /> : data && <TrendingList data={data} />}
-    </div>
+    </MoviesContainer>
   );
 };
 

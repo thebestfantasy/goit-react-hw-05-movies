@@ -1,5 +1,5 @@
-import { Link, useLocation } from 'react-router-dom';
-import { Card, GenresList, MoviePoster } from './MovieCard.Styled';
+import { useLocation } from 'react-router-dom';
+import { Card, GenresList, MoviePoster, StyledLink } from './MovieCard.Styled';
 import { useRef } from 'react';
 
 const MovieCard = ({ movieData }) => {
@@ -13,7 +13,7 @@ const MovieCard = ({ movieData }) => {
 
   return (
     <>
-      <Link to={backLinkHref.current}>Go Back</Link>
+      <StyledLink to={backLinkHref.current}>Go Back</StyledLink>
       <Card>
         <div>
           {poster_path ? (
