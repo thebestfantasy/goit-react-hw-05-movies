@@ -9,7 +9,8 @@ const MovieCard = ({ movieData }) => {
     movieData;
   const imgPath = 'https://image.tmdb.org/t/p/w500';
   const year = parseInt(release_date.split('-'));
-  const backLinkHref = useRef(location.state?.from ?? '/movies');
+  const backLinkHref = useRef(location.state?.from ?? '/');
+  const defaultImg = '/nbrqj9q8WubD3QkYm7n3GhjN7kE.jpg';
 
   return (
     <>
@@ -19,7 +20,7 @@ const MovieCard = ({ movieData }) => {
           {poster_path ? (
             <MoviePoster src={`${imgPath}${poster_path}`} alt={title} />
           ) : (
-            title
+            <MoviePoster src={`${imgPath}${defaultImg}`} alt={'no image'} />
           )}
         </div>
         <div>
